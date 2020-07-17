@@ -173,10 +173,10 @@ client.on('message', message => {
   if (!message.member.roles.cache.find(c => c.name === 'Admin'))
     return
 
-  if (!message.content.startsWith(process.env.prefix))
+  if (!message.content.startsWith(config.prefix))
     return
 
-  const args = message.content.substring(process.env.prefix.length).split(' ')
+  const args = message.content.substring(config.prefix.length).split(' ')
 
   switch (args[0]) {
     case 'test':
