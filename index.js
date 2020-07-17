@@ -1,3 +1,4 @@
+require('dotenv').config()
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./config.json');
@@ -169,10 +170,10 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
-  if (!message.content.startsWith(config.prefix))
+  if (!message.content.startsWith(process.env.prefix))
     return
 
-  const args = message.content.substring(config.prefix.length).split(' ')
+  const args = message.content.substring(process.env.prefix.length).split(' ')
 
   switch (args[0]) {
     case 'test':
@@ -207,4 +208,4 @@ client.on('message', message => {
   }
 })
 
-client.login(config.token);
+client.login(process.env.token);
