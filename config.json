@@ -1,4 +1,385 @@
 {
   "prefix": "!",
-  "token": "NzMyNDE3NDc2NDQwMjI3OTAx.Xw00lQ.61BulzaYtulR1N-wwQXs6XE_mqM"
+  "token": "Your Fancy Token",
+  "roleArray": [
+    "cupid",
+    "sói",
+    "sói con",
+    "bảo vệ",
+    "phù thủy",
+    "tiên tri",
+    "thợ săn",
+    "thổi kèn",
+    "người chết",
+    "dân làng 1",
+    "dân làng 2",
+    "sói nguyền",
+    "hoàng tử",
+    "già làng",
+    "sói trắng",
+    "sói trùm",
+    "sói lửa",
+    "con bệnh",
+    "anh em",
+    "hầu gái",
+    "tu sĩ"
+  ],
+  "gameBase": {
+    "3": [
+      [
+        "sói",
+        "cupid",
+        "dân làng 1"
+      ],
+      [
+        "sói",
+        "bảo vệ",
+        "dân làng 2"
+      ],
+      [
+        "hoàng tử",
+        "cupid",
+        "thổi kèn"
+      ]
+    ],
+    "8": [
+      [
+        "sói",
+        "sói",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "dân làng 1",
+        "cupid"
+      ]
+    ],
+    "9": [
+      [
+        "sói",
+        "sói",
+        "sói lửa",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "dân làng 1",
+        "cupid"
+      ],
+      [
+        "sói",
+        "sói trùm",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "con bệnh",
+        "cupid"
+      ],
+      [
+        "sói",
+        "sói",
+        "sói con",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "con bệnh",
+        "cupid"
+      ]
+    ],
+    "10": [
+      [
+        "sói",
+        "sói",
+        "sói lửa",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "dân làng 1",
+        "cupid",
+        "thổi kèn"
+      ],
+      [
+        "sói",
+        "sói trùm",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "con bệnh",
+        "cupid",
+        "thổi kèn"
+      ],
+      [
+        "sói",
+        "sói",
+        "sói con",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "con bệnh",
+        "cupid",
+        "thổi kèn"
+      ]
+    ],
+    "11": [
+      [
+        "sói",
+        "sói",
+        "sói con",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "hoàng tử"
+      ],
+      [
+        "sói",
+        "sói",
+        "sói trùm",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "hầu gái"
+      ],
+      [
+        "sói",
+        "sói",
+        "sói lửa",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "dân làng 1"
+      ],
+      [
+        "sói",
+        "sói trùm",
+        "sói lửa",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "con bệnh",
+        "hầu gái"
+      ],
+      [
+        "sói",
+        "sói trùm",
+        "sói lửa",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "con bệnh",
+        "già làng"
+      ]
+    ],
+    "12": [
+      [
+        "sói",
+        "sói",
+        "sói con",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "dân làng 1",
+        "già làng"
+      ],
+      [
+        "sói",
+        "sói trùm",
+        "sói trắng",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "tu sĩ",
+        "cupid",
+        "thổi kèn",
+        "dân làng 1",
+        "già làng"
+      ],
+      [
+        "sói",
+        "sói lửa",
+        "sói trắng",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "dân làng 1",
+        "hoàng tử"
+      ],
+      [
+        "sói",
+        "sói lửa",
+        "sói trắng",
+        "sói trùm",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "hầu gái",
+        "hoàng tử"
+      ],
+      [
+        "sói",
+        "sói lửa",
+        "sói trùm",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "anh em",
+        "anh em"
+      ]
+    ],
+    "13": [
+      [
+        "sói",
+        "sói trắng",
+        "sói trùm",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "dân làng 1",
+        "hoàng tử",
+        "hầu gái"
+      ],
+      [
+        "sói",
+        "sói lửa",
+        "sói trùm",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "anh em",
+        "anh em",
+        "già làng"
+      ],
+      [
+        "sói",
+        "sói trắng",
+        "sói trùm",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "anh em",
+        "anh em",
+        "hầu gái"
+      ],
+      [
+        "sói",
+        "sói",
+        "sói trắng",
+        "sói trùm",
+        "phù thủy",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "anh em",
+        "anh em",
+        "anh em",
+        "dân làng 1",
+        "hầu gái"
+      ]
+    ],
+    "14": [
+      [
+        "sói",
+        "sói trắng",
+        "sói trùm",
+        "sói lửa",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "dân làng 1",
+        "hoàng tử",
+        "hầu gái",
+        "già làng"
+      ],
+      [
+        "sói",
+        "sói trắng",
+        "sói trùm",
+        "sói lửa",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "anh em",
+        "anh em",
+        "hầu gái",
+        "già làng"
+      ]
+    ],
+    "15": [
+      [
+        "sói",
+        "sói trắng",
+        "sói trùm",
+        "sói lửa",
+        "sói nguyền",
+        "phù thủy",
+        "tiên tri",
+        "thợ săn",
+        "bảo vệ",
+        "cupid",
+        "thổi kèn",
+        "anh em",
+        "anh em",
+        "hầu gái",
+        "già làng"
+      ]
+    ]
+  }
 }
