@@ -1,4 +1,42 @@
 {
   "prefix": "!",
-  "token": "Your Fancy Token"
+  "token": "Your Fancy Token",
+  "roleArray": [
+    "cupid",
+    "sói",
+    "sói con",
+    "bảo vệ",
+    "phù thủy",
+    "tiên tri",
+    "thợ săn",
+    "thổi kèn",
+    "người chết",
+    "dân làng 1",
+    "dân làng 2",
+    "sói nguyền",
+    "hoàng tử",
+    "già làng"
+  ],
+  "gameBase": {
+    "3": [
+      ["sói", "cupid", "dân làng 1"],
+      ["sói", "bảo vệ", "dân làng 2"],
+      ["hoàng tử", "cupid", "thổi kèn"]
+    ],
+    "8": [
+      ["sói", "sói", "phù thủy", "tiên tri", "thợ săn", "bảo vệ", "dân làng 1", "cupid"]
+    ],
+    "9": [
+      ["sói", "sói con", "phù thủy", "tiên tri", "thợ săn", "bảo vệ", "dân làng 1", "cupid", "thổi kèn"]
+    ],
+    "10": [
+      ["sói", "sói con", "sói", "phù thủy", "tiên tri", "thợ săn", "bảo vệ", "dân làng 1", "cupid", "thổi kèn"]
+    ],
+    "11": [],
+    "12": [],
+    "13": [],
+    "14": [], 
+    "15": [],
+    "16": []
+  }
 }
