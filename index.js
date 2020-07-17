@@ -170,6 +170,9 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
+  if (!message.member.roles.cache.find(c => c.name === 'Admin'))
+    return
+
   if (!message.content.startsWith(process.env.prefix))
     return
 
