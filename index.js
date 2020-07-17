@@ -46,7 +46,7 @@ const choose = (message, gameBase) => {
 
       collector.on('end', (reaction, user) => {
         const indices = numberReactions.indexOf(reaction.first().emoji.name)
-        // console.log(indices)
+        message.channel.send('Đã chọn làng! Mọi người kiểm tra các role có trong làng!')
         const roles = shuffle(gameBase[indices])
         for (let i = 0; i < roles.length; i++) {
           const user = message.guild.members.cache
@@ -167,7 +167,6 @@ client.on('message', message => {
   switch (args[0]) {
     case 'test':
       message.channel.send('test')
-      choose(message)
       break
 
     case 'sleep':
