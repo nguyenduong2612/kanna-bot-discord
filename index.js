@@ -121,6 +121,16 @@ const wakeup = (message) => {
 }
 
 const end = (message) => {
+  players.forEach((u, i) => {
+    console.log(u)
+    message.guild.members.cache
+      .find(m => m.id === u.id)
+      .roles.set([])
+      .catch(console.error)
+  })
+}
+
+const forceEnd = (message) => {
   if (message.member.roles.cache.find(c => c.name === 'Admin')) {
     const members = message.guild.members.cache.filter(member => (member.user.bot === false))
     members.each(m => {
@@ -188,6 +198,11 @@ client.on('message', message => {
     case 'end':
       message.channel.send('END GAME')
       end(message)
+      break
+
+    case 'fquit':
+      message.channel.send('FORCE END GAME')
+      forceEnd(message)
       break
   }
 })
