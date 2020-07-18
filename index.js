@@ -46,7 +46,7 @@ const choose = (message, gameBase) => {
       })
 
       collector.on('end', (reaction, user) => {
-        const indices = numberReactions.indexOf(reaction.first().emoji.name)
+        const indices = numberReactions.indexOf(reaction.last().emoji.name)
         message.channel.send('Đã chọn làng! Mọi người kiểm tra các role có trong làng!')
         const roles = shuffle(gameBase[indices])
         for (let i = 0; i < roles.length; i++) {
@@ -129,6 +129,8 @@ const end = (message) => {
       .roles.set([])
       .catch(console.error)
   })
+
+  players = []
 }
 
 const forceEnd = (message) => {
@@ -141,6 +143,8 @@ const forceEnd = (message) => {
         .catch(console.error);
     })
   }
+
+  players = []
 }
 
 const sleep = (message) => {
