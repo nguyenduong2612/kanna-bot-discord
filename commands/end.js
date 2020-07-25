@@ -15,7 +15,8 @@ const end = (message, warg) => {
     message.guild.member(user).roles.set([]).catch(console.error)
   })
 
-  warg = new Werewoft()
+  warg.players = []
+  warg.deads = {}
 }
 
 module.exports = {
