@@ -19,11 +19,11 @@ const log = (message, warg) => {
     .addFields([
       ...Object.keys(warg.deads).map((key, index) => ({
         name: '💀 ' + key.toUpperCase(),
-        value: ' ' + warg.deads[key].join(', ')
+        value: '_ ' + warg.deads[key].join(', ')
       })),
       {
         name: `🖖 SỐNG: ${alives.length}`, 
-        value: ' ' + alives.join(', ')
+        value: '_ ' + alives.join(', ')
       }
     ])
 
