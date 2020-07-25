@@ -12,7 +12,7 @@ module.exports = {
 
 		if (!args.length) {
 			data.push('Danh sách lệnh');
-			data.push(commands.map(command => command.name).join(', '));
+			data.push(commands.map(command => command.name + ': ' + command.description).join('\n'));
 			data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
 
 			return message.channel.send(data, { split: true })

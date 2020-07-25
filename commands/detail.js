@@ -34,7 +34,7 @@ const log = (message, warg) => {
 module.exports = {
   name: 'detail',
   aliases: ['d', 'l2', 'log2'],
-  description: 'Ghi chép',
+  description: '!detail [command mentions "Đêm x"]',
   usage: '[command mentions "Đêm x"]',
   guildOnly: true,
 	execute(message, args, warg) {
