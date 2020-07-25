@@ -184,7 +184,7 @@ client.on('message', message => {
 
   switch (args[0]) {
     case 'test':
-      message.channel.send('test')
+      message.channel.send('v3')
       break
 
     case 'sleep':
