@@ -45,6 +45,7 @@ const choose = (message, gameBase, warg) => {
         const embed = new Discord.MessageEmbed()
           .setColor('#0099ff')
           .addField('ĐÃ CHỌN', gameBase[indices].join(', '))
+        message.channel.send(embed)
         message.channel.send('Đã chọn làng! Mọi người kiểm tra các role có trong làng!')
         const roles = shuffle(gameBase[indices])
         for (let i = 0; i < roles.length; i++) {
