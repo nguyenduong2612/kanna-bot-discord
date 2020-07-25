@@ -18,12 +18,12 @@ const log = (message, warg) => {
     .setColor('#0099ff')
     .addFields([
       ...Object.keys(warg.deads).map((key, index) => ({
-        name: key.toUpperCase(),
-        value: '💀 ' + warg.deads[key].join(', ')
+        name: '💀 ' + key.toUpperCase(),
+        value: ' ' + warg.deads[key].join(', ')
       })),
       {
-        name: `SỐNG: ${alives.length}`, 
-        value: '🖖 ' + alives.join(', ')
+        name: `🖖 SỐNG: ${alives.length}`, 
+        value: ' ' + alives.join(', ')
       }
     ])
 
@@ -34,7 +34,7 @@ const log = (message, warg) => {
 module.exports = {
   name: 'detail',
   aliases: ['d', 'l2', 'log2'],
-  description: '!detail [command mentions "Đêm x"]',
+  description: '!detail @Diep @Phuong Anh "Đêm 1"',
   usage: '[command mentions "Đêm x"]',
   guildOnly: true,
 	execute(message, args, warg) {

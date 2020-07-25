@@ -1,4 +1,5 @@
 const config = require('../config.json')
+const Discord = require('discord.js')
 
 const shuffle = (a) => {
   const r = [...a]
@@ -41,6 +42,9 @@ const choose = (message, gameBase, warg) => {
 
       collector.on('end', (reaction, user) => {
         const indices = numberReactions.indexOf(reaction.last().emoji.name)
+        const embed = new Discord.MessageEmbed()
+          .setColor('#0099ff')
+          .addField('ĐÃ CHỌN', gameBase[indices].join(', '))
         message.channel.send('Đã chọn làng! Mọi người kiểm tra các role có trong làng!')
         const roles = shuffle(gameBase[indices])
         for (let i = 0; i < roles.length; i++) {

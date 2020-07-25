@@ -13,7 +13,6 @@ module.exports = {
 		if (!args.length) {
 			data.push('Danh sách lệnh');
 			data.push(commands.map(command => command.name + ': ' + command.description).join('\n'));
-			data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
 
 			return message.channel.send(data, { split: true })
 				.then(() => {
@@ -30,16 +29,16 @@ module.exports = {
 		const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
 
 		if (!command) {
-			return message.reply('that\'s not a valid command!');
+			return message.reply('Tao không có lệnh nào như thế');
 		}
 
-		data.push(`**Name:** ${command.name}`);
+		data.push(`**Lệnh:** ${command.name}`);
 
-		if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
-		if (command.description) data.push(`**Description:** ${command.description}`);
-		if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
+		if (command.aliases) data.push(`**Thay thế:** ${command.aliases.join(', ')}`);
+		if (command.description) data.push(`**Mô tả:** ${command.description}`);
+		if (command.usage) data.push(`**Cách dùng:** ${prefix}${command.name} ${command.usage}`);
 
-		data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
+		data.push(`**Spam sau:** ${command.cooldown || 3} giây`);
 
 		message.channel.send(data, { split: true });
 	},
