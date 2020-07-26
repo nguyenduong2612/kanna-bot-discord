@@ -13,11 +13,8 @@ const vote = (message, warg) => {
   const embed = new Discord.MessageEmbed()
     .setColor('#0099ff')
     .setTitle('VOTE')
-    .addFields(
-      alives.map((v, i) => ({
-        name: emoji[i],
-        value: v,
-      }))
+    .setDescription(
+      alives.map((v, i) => `${emoji[i]}・${v}`).join('\n')
     )
   
   message.channel.send(embed)
