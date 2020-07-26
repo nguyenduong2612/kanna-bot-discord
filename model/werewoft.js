@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = function() {
   this.deck = ""
   this.players = []
   this.alives = []
