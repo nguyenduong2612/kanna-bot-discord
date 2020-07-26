@@ -17,7 +17,6 @@ const vote = (message, warg) => {
       alives.map((v, i) => ({
         name: emoji[i],
         value: v,
-        inline: true
       }))
     )
   
