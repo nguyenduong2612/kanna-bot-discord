@@ -1,5 +1,3 @@
-const Werewoft = require("../model/werewoft")
-
 const end = (message, warg) => {
   if (warg.players.length === 0) {
     const adminRole = message.guild.roles.cache.find(c => c.name === 'Admin')
@@ -15,8 +13,7 @@ const end = (message, warg) => {
     message.guild.member(user).roles.set([]).catch(console.error)
   })
 
-  warg.players = []
-  warg.deads = {}
+  warg.reset()
 }
 
 module.exports = {

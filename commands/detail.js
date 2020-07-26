@@ -2,11 +2,6 @@ const config = require('../config.json')
 const Discord = require('discord.js')
 
 const log = (message, warg) => {
-  const deads = message.guild.members.cache
-    .filter(member => {
-      return member.roles.cache.find(c => c.name === 'người chết') ? true : false
-    })
-    .map(v => v.displayName || v.nickname)
 
   const aliveRole = config.roleArray.filter(v => v !== 'người chết')
 
@@ -18,14 +13,15 @@ const log = (message, warg) => {
     .setColor('#0099ff')
     .addFields([
       ...Object.keys(warg.deads).map((key, index) => ({
-        name: '💀 ' + key.toUpperCase(),
+        name: key.toUpperCase(),
         value: '_ ' + warg.deads[key].join(', ')
       })),
       {
-        name: `🖖 SỐNG: ${alives.length}`, 
+        name: `SỐNG: ${alives.length}`, 
         value: '_ ' + alives.join(', ')
       }
     ])
+    .addField('LÀNG: ', warg.deck)
 
 
   message.channel.send(embed)

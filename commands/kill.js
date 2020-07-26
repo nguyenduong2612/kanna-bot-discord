@@ -1,5 +1,5 @@
 const kill = (message, args, warg) => {
-  const killKey = args.join(' ').match(/"([^\\"]|\\")*"/)[0]
+  const killKey = args.join(' ').match(/"([^\\"]|\\")*"/)[0].toUpperCase()
   const deadRole = message.guild.roles.cache.find(r => r.name === 'người chết')
   const killMembers = message.mentions.members.map(u => {
     u.roles.set([deadRole]).catch(console.error)
