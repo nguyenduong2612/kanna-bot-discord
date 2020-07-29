@@ -21,7 +21,7 @@ const log = (message, warg) => {
         value: '_ ' + alives.join(', ')
       }
     ])
-    .addField('LÀNG: ', warg.deck)
+    .addField('LÀNG: ', "_" + warg.deck)
 
 
   message.channel.send(embed)
