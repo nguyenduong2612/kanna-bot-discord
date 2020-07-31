@@ -1,5 +1,5 @@
 const database = require('../database.js').firestore()
-const Discord = require('discord.js');
+const Discord = require('discord.js')
 
 const addMedalToName = (rank, username) => {
   if (rank == 1) return '🏆 ' + username
