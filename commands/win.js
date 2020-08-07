@@ -9,7 +9,7 @@ Thắng + chết (dạng háng) = 1 điểm
 Thua = 0 điểm
 */
 
-const winners_alive_name = []
+var winners_alive_name = []
 
 const initData = (message, warg) => {
   const players = []
@@ -111,5 +111,6 @@ module.exports = {
   adminOnly: true,
 		execute(message, args, warg) {
 			win(message, warg)
+			winners_alive_name = []
 		},
 };
