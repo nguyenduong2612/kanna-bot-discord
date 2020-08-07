@@ -4,9 +4,9 @@ const database = require('../database.js').firestore()
 const board = database.collection('leaderboard') //khai báo collection
 
 /* RULES
-Thắng + còn sống = 3 điểm
-Thắng + chết (dạng háng) = 1 điểm
-Thua = 0 điểm
+Thắng + còn sống = +3 điểm
+Thắng + chết (dạng háng) = +1 điểm
+Thua = -1 điểm
 */
 
 var winners_alive_name = []
@@ -31,7 +31,8 @@ const initData = (message, warg) => {
         })
       } else {
         board.doc(uid).update({
-          game: admin.firestore.FieldValue.increment(1)
+          game: admin.firestore.FieldValue.increment(1),
+          point: admin.firestore.FieldValue.increment(-1)
         })
       }
     }).catch(e => {
@@ -50,7 +51,7 @@ const updateWin = (message, winners, team) => {
       board.doc(uid).update({     //update người thắng + chết
         [`${team}`]: admin.firestore.FieldValue.increment(1),
         win: admin.firestore.FieldValue.increment(1),
-        point: admin.firestore.FieldValue.increment(1)
+        point: admin.firestore.FieldValue.increment(2)
       })
     } else {                      //update người thắng + còn sống
       winners_alive_name.push(member.displayName)
@@ -58,7 +59,7 @@ const updateWin = (message, winners, team) => {
         [`${team}`]: admin.firestore.FieldValue.increment(1),
         win: admin.firestore.FieldValue.increment(1),
         alive: admin.firestore.FieldValue.increment(1),
-        point: admin.firestore.FieldValue.increment(3)
+        point: admin.firestore.FieldValue.increment(4)
       })
     }
   })

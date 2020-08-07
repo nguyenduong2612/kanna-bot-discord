@@ -12,7 +12,7 @@ const profile = (message) => {
     var embed = new Discord.MessageEmbed()
       .setTitle(message.member.displayName)
       .setThumbnail(message.member.user.avatarURL())
-      .addField(`THẮNG: ${u.data().win}/${u.data().game} (${win_over_game}%)`,
+      .addField(`THẮNG: ${u.data().win}/${u.data().game} (${win_over_game}%)\nĐIỂM: ${u.data().point}`,
                 `\nSói thắng: ${u.data().wolf} trận
                  Người thắng: ${u.data().human} trận
                  Phe thứ ba thắng: ${u.data().other} trận

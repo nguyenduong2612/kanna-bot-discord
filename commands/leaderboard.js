@@ -17,7 +17,7 @@ const leaderboard = (message) => {
       .setTitle('BẢNG XẾP HẠNG TOP 10')
       .setDescription(`Thắng + còn sống = +3 điểm
                        Thắng + chết (dạng háng) = +1 điểm
-                       Thua = +0 điểm\n`)
+                       Thua = -1 điểm\n`)
     
     var rank = 1
     users.forEach(u => {
