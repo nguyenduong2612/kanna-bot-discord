@@ -3,7 +3,7 @@ const join = (message, args) => {
   channel.join().then(connection => {
         // Yay, it worked!
     console.log("Successfully connected.");
-     message.channel.send(`connected`)
+     message.channel.send(`ĐÃ KẾT NỐI`)
   }).catch(e => {
     // Oh no, it errored! Let's log it to console :)
     console.error(e);
