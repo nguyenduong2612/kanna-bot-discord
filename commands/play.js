@@ -1,4 +1,5 @@
 const { play } = require("../model/play");
+const { showQueue } = require("../model/showQueue");
 const ytdl = require("ytdl-core");
 const YouTubeAPI = require("simple-youtube-api");
 const youtube = new YouTubeAPI(process.env.YOUTUBE_API_KEY);
@@ -79,6 +80,9 @@ module.exports = {
       serverQueue.songs.push(song);
       return serverQueue.textChannel
         .send(`✅ ĐÃ THÊM **${song.title}**`)
+        .then(() => {
+          showQueue(message)
+        })
         .catch(console.error);
     }
 
