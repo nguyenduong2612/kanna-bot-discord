@@ -11,6 +11,7 @@
     "firebase": "^7.17.1",
     "firebase-admin": "^9.0.0",
     "simple-youtube-api": "^5.2.1",
+    "tenorjs": "^1.0.7",
     "ytdl-core": "^3.2.1",
     "ytdl-core-discord": "^1.2.1"
   },
