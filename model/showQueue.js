@@ -3,20 +3,24 @@ const { MessageEmbed, splitMessage, escapeMarkdown } = require("discord.js");
 module.exports = {
   showQueue(message) {
     const queue = message.client.queue.get(message.guild.id);
-    if (!queue) return message.reply("HẾT NHẠC !").catch(console.error);
+    if (!queue) return message.reply("HẾT NHẠC RÙI 😭").catch(console.error);
 
+    let totalTime = 0
     const description = queue.songs.map((song, index) => {
       if (index == 0) {
-        return `**▶️ ${index + 1}. ${escapeMarkdown(song.title)}**`;
+        totalTime += parseInt(song.duration)
+        return `**▶️ ${index + 1}. ${escapeMarkdown(song.title)} - @${song.order} **`;
       } else {
-        return `${index + 1}. ${escapeMarkdown(song.title)}`;
+        totalTime += parseInt(song.duration)
+        return `${index + 1}. ${escapeMarkdown(song.title)} - @${song.order}`;
       }
     });
 
     let queueEmbed = new MessageEmbed()
       .setTitle("QUEUE")
       .setDescription(description)
-      .setColor("#C6AFD1");
+      .setColor("#C6AFD1")
+      .setFooter(`Tổng thời gian: ${new Date(totalTime * 1000).toISOString().substr(11, 8)}`);
 
     const splitDescription = splitMessage(description, {
       maxLength: 2048,
@@ -51,7 +55,7 @@ module.exports = {
             queue.playing = true;
             reaction.users.remove(user).catch(console.error);
             queue.connection.dispatcher.end();
-            queue.textChannel.send(`${user} ⏩ SKIPPED`).catch(console.error);
+            queue.textChannel.send(`⏩ SKIPPED`).catch(console.error);
             collector.stop();
             break;
   
@@ -60,11 +64,11 @@ module.exports = {
             if (queue.playing) {
               queue.playing = !queue.playing;
               queue.connection.dispatcher.pause(true);
-              queue.textChannel.send(`${user} ⏸ PAUSED.`).catch(console.error);
+              queue.textChannel.send(`⏸ PAUSED`).catch(console.error);
             } else {
               queue.playing = !queue.playing;
               queue.connection.dispatcher.resume();
-              queue.textChannel.send(`${user} ▶ RESUMED`).catch(console.error);
+              queue.textChannel.send(`▶ RESUMED`).catch(console.error);
             }
             break;
   
@@ -77,7 +81,7 @@ module.exports = {
           case "⏹":
             reaction.users.remove(user).catch(console.error);
             queue.songs = [];
-            queue.textChannel.send(`${user} ⏹ STOPED!`).catch(console.error);
+            queue.textChannel.send(`⏹ STOPED!`).catch(console.error);
             try {
               queue.connection.dispatcher.end();
             } catch (error) {

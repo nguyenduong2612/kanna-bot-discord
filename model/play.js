@@ -1,4 +1,5 @@
 const ytdlDiscord = require("ytdl-core-discord");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   async play(song, message) {
@@ -7,7 +8,7 @@ module.exports = {
     if (!song) {
       //queue.channel.leave();
       message.client.queue.delete(message.guild.id);
-      return queue.textChannel.send("HẾT NHẠC !").catch(console.error);
+      return queue.textChannel.send("HẾT NHẠC RÙI 😭").catch(console.error);
     }
 
     let stream = null;
@@ -50,8 +51,16 @@ module.exports = {
       });
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
 
+    // show playing
+    let playingEmbed = new MessageEmbed()
+      .setTitle(`🎶 ĐANG PHÁT: **${song.title}**`)
+      .setDescription(song.url)
+      .setColor("#C6AFD1")
+      .setImage(song.thumbnail)
+      .setFooter(`bài hát này dành tặng cho ${song.order} ❤️`)
+ 
     try {
-      var playingMessage = await queue.textChannel.send(`🎶 ĐANG PHÁT: **${song.title}** ${song.url}`);
+      var playingMessage = await queue.textChannel.send(playingEmbed);
       await playingMessage.react("⏭");
       await playingMessage.react("⏯");
       await playingMessage.react("🔁");
@@ -74,7 +83,7 @@ module.exports = {
           queue.playing = true;
           reaction.users.remove(user).catch(console.error);
           queue.connection.dispatcher.end();
-          queue.textChannel.send(`${user} ⏩ SKIPPED`).catch(console.error);
+          queue.textChannel.send(`⏩ SKIPPED`).catch(console.error);
           collector.stop();
           break;
 
@@ -83,11 +92,11 @@ module.exports = {
           if (queue.playing) {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.pause(true);
-            queue.textChannel.send(`${user} ⏸ PAUSED.`).catch(console.error);
+            queue.textChannel.send(`⏸ PAUSED`).catch(console.error);
           } else {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.resume();
-            queue.textChannel.send(`${user} ▶ RESUMED`).catch(console.error);
+            queue.textChannel.send(`▶ RESUMED`).catch(console.error);
           }
           break;
 
@@ -100,7 +109,7 @@ module.exports = {
         case "⏹":
           reaction.users.remove(user).catch(console.error);
           queue.songs = [];
-          queue.textChannel.send(`${user} ⏹ STOPED!`).catch(console.error);
+          queue.textChannel.send(`⏹ STOPED!`).catch(console.error);
           try {
             queue.connection.dispatcher.end();
           } catch (error) {

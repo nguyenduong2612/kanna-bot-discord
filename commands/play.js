@@ -55,7 +55,9 @@ module.exports = {
         song = {
           title: songInfo.videoDetails.title,
           url: songInfo.videoDetails.video_url,
-          duration: songInfo.videoDetails.lengthSeconds
+          duration: songInfo.videoDetails.lengthSeconds,
+          thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
+          order: message.author.username
         };
       } catch (error) {
         console.error(error);
@@ -68,7 +70,9 @@ module.exports = {
         song = {
           title: songInfo.videoDetails.title,
           url: songInfo.videoDetails.video_url,
-          duration: songInfo.videoDetails.lengthSeconds
+          duration: songInfo.videoDetails.lengthSeconds,
+          thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
+          order: message.author.username
         };
       } catch (error) {
         console.error(error);
@@ -79,7 +83,7 @@ module.exports = {
     if (serverQueue) {
       serverQueue.songs.push(song);
       return serverQueue.textChannel
-        .send(`✅ ĐÃ THÊM **${song.title}**`)
+        .send(`✅ ĐÃ THÊM **${song.title}** ordered by **@${song.order}**`)
         .then(() => {
           showQueue(message)
         })
@@ -91,7 +95,7 @@ module.exports = {
 
     try {
       queueConstruct.connection = await channel.join();
-      //await queueConstruct.connection.voice.setSelfDeaf(true);
+      await queueConstruct.connection.voice.setSelfDeaf(true);
       play(queueConstruct.songs[0], message);
       console.log('ok')
     } catch (error) {
