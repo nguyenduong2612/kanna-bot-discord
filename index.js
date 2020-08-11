@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix } = require('./config.json');
+const { prefix } = process.env;
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
