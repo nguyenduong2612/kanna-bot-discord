@@ -54,7 +54,8 @@ module.exports = {
     // show playing
     let playingEmbed = new MessageEmbed()
       .setTitle(`🎶 ĐANG PHÁT: **${song.title}**`)
-      .setDescription(song.url)
+      .setURL(song.url)
+      .setDescription(`🔊 Âm lượng: ${queue.volume}%\n🔁 Lặp: ${queue.loop ? "Bật" : "Tắt"}`)
       .setColor("#C6AFD1")
       .setImage(song.thumbnail)
       .setFooter(`bài hát này dành tặng cho ${song.order} ❤️`)
