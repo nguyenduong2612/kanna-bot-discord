@@ -42,9 +42,7 @@ module.exports = {
       }
   
       const filter = (reaction, user) => user.id !== message.client.user.id;
-      var collector = queueMessage.createReactionCollector(filter, {
-        time: 600000
-      });
+      var collector = queueMessage.createReactionCollector(filter);
   
       collector.on("collect", (reaction, user) => {
         if (!queue) return;
