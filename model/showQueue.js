@@ -36,6 +36,7 @@ module.exports = {
         await queueMessage.react("⏭");
         await queueMessage.react("⏯");
         await queueMessage.react("🔁");
+        await queueMessage.react("🔂");
         await queueMessage.react("⏹");
       } catch (error) {
         console.error(error);
@@ -72,8 +73,18 @@ module.exports = {
   
           case "🔁":
             reaction.users.remove(user).catch(console.error);
-            queue.loop = !queue.loop;
-            queue.textChannel.send(`${queue.loop ? "**BẬT**" : "**TẮT**"} LOOP`).catch(console.error);
+            if (queue.loop != "all") queue.loop = "all";
+            else queue.loop = "none";
+  
+            queue.textChannel.send(`LOOP: ${queue.loop == "all" ? "**TẤT CẢ**" : "**TẮT**"}`).catch(console.error);
+            break;
+  
+          case "🔂":
+            reaction.users.remove(user).catch(console.error);
+            if (queue.loop != "one") queue.loop = "one";
+            else queue.loop = "none";
+  
+            queue.textChannel.send(`LOOP: ${queue.loop == "one" ? "**MỘT**" : "**TẮT**"}`).catch(console.error);
             break;
   
           case "⏹":

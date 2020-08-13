@@ -44,7 +44,7 @@ module.exports = {
       channel,
       connection: null,
       songs: [],
-      loop: false,
+      loop: "none",
       volume: 100,
       playing: true
     };

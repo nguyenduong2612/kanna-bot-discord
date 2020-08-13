@@ -8,7 +8,7 @@ module.exports = {
     if (!song) {
       //queue.channel.leave();
       message.client.queue.delete(message.guild.id);
-      return queue.textChannel.send("HẾT NHẠC RÙI 😭").catch(console.error);
+      return;
     }
 
     let stream = null;
@@ -35,7 +35,9 @@ module.exports = {
       .on("finish", () => {
         if (collector && !collector.ended) collector.stop();
 
-        if (queue.loop) {
+        if (queue.loop == "one") {
+          module.exports.play(queue.songs[0], message);
+        } else if (queue.loop == "all") {
           let lastSong = queue.songs.shift();
           queue.songs.push(lastSong);
           module.exports.play(queue.songs[0], message);
@@ -55,7 +57,9 @@ module.exports = {
     let playingEmbed = new MessageEmbed()
       .setTitle(`🎶 ĐANG PHÁT: **${song.title}**`)
       .setURL(song.url)
-      .setDescription(`🔊 Âm lượng: ${queue.volume}%\n🔁 Lặp: ${queue.loop ? "Bật" : "Tắt"}`)
+      .setDescription(`🔊 Âm lượng: ${queue.volume}%
+                       🔁 Loop: ${queue.loop == "one" ? "Một" : queue.loop == "all" ? "Tất cả" : "Tắt"}`)
+                       
       .setColor("#C6AFD1")
       .setImage(song.thumbnail)
       .setFooter(`bài hát này dành tặng cho ${song.order} ❤️`)
@@ -65,6 +69,7 @@ module.exports = {
       await playingMessage.react("⏭");
       await playingMessage.react("⏯");
       await playingMessage.react("🔁");
+      await playingMessage.react("🔂");
       await playingMessage.react("⏹");
     } catch (error) {
       console.error(error);
@@ -103,8 +108,18 @@ module.exports = {
 
         case "🔁":
           reaction.users.remove(user).catch(console.error);
-          queue.loop = !queue.loop;
-          queue.textChannel.send(`${queue.loop ? "**BẬT**" : "**TẮT**"} LOOP`).catch(console.error);
+          if (queue.loop != "all") queue.loop = "all";
+          else queue.loop = "none";
+
+          queue.textChannel.send(`LOOP: ${queue.loop == "all" ? "**TẤT CẢ**" : "**TẮT**"}`).catch(console.error);
+          break;
+
+        case "🔂":
+          reaction.users.remove(user).catch(console.error);
+          if (queue.loop != "one") queue.loop = "one";
+          else queue.loop = "none";
+
+          queue.textChannel.send(`LOOP: ${queue.loop == "one" ? "**MỘT**" : "**TẮT**"}`).catch(console.error);
           break;
 
         case "⏹":
