@@ -2,7 +2,10 @@ const { play } = require("../model/play");
 const { showQueue } = require("../model/showQueue");
 const ytdl = require("ytdl-core");
 const YouTubeAPI = require("simple-youtube-api");
-const youtube = new YouTubeAPI(process.env.YOUTUBE_API_KEY);
+
+const keylist = [process.env.YOUTUBE_API_KEY, process.env.YOUTUBE_API_KEY_1, process.env.YOUTUBE_API_KEY_2];
+//get random key
+const youtube = new YouTubeAPI(keylist[Math.floor(Math.random() * keylist.length)]);
 
 module.exports = {
   name: "play",
