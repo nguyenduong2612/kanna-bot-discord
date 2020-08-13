@@ -4,8 +4,6 @@ const ytdl = require("ytdl-core");
 const YouTubeAPI = require("simple-youtube-api");
 
 const keylist = [process.env.YOUTUBE_API_KEY, process.env.YOUTUBE_API_KEY_1, process.env.YOUTUBE_API_KEY_2];
-//get random key
-const youtube = new YouTubeAPI(keylist[Math.floor(Math.random() * keylist.length)]);
 
 module.exports = {
   name: "play",
@@ -68,6 +66,8 @@ module.exports = {
       }
     } else {
       try {
+        //get random key
+        const youtube = new YouTubeAPI(keylist[Math.floor(Math.random() * keylist.length)]);
         const results = await youtube.searchVideos(search, 1);
         songInfo = await ytdl.getInfo(results[0].url);
         song = {
