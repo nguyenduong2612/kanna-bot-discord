@@ -33,10 +33,6 @@ module.exports = {
     const url = args[0];
     const urlValid = videoPattern.test(args[0]);
 
-    if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      return message.client.commands.get("playlist").execute(message, args);
-    }
-
     const queueConstruct = {
       textChannel: message.channel,
       channel,
@@ -49,53 +45,108 @@ module.exports = {
 
     let songInfo = null;
     let song = null;
+    let videos = [];
 
-    if (urlValid) {
-      try {
-        songInfo = await ytdl.getInfo(url);
-        song = {
-          title: songInfo.videoDetails.title,
-          url: songInfo.videoDetails.video_url,
-          duration: songInfo.videoDetails.lengthSeconds,
-          thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
-          order: message.author.username
-        };
-      } catch (error) {
-        console.error(error);
-        return message.reply(error.message).catch(console.error);
+    if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
+      if (urlValid) {
+        try {
+          //get random key
+          const youtube = new YouTubeAPI(keylist[Math.floor(Math.random() * keylist.length)]);
+          playlist = await youtube.getPlaylist(url, { part: ["snippet"] });
+          videos = await playlist.getVideos(20, { part: ["snippet"] });
+          console.log(videos)
+        } catch (error) {
+          console.error(error);
+          return message.reply("KHÔNG TÌM THẤY :(").catch(console.error);
+        }
+      } else {
+        return message.reply("KHÔNG TÌM THẤY :(").catch(console.error);
       }
     } else {
-      try {
-        //get random key
-        const youtube = new YouTubeAPI(keylist[Math.floor(Math.random() * keylist.length)]);
-        const results = await youtube.searchVideos(search, 1);
-        songInfo = await ytdl.getInfo(results[0].url);
-        song = {
-          title: songInfo.videoDetails.title,
-          url: songInfo.videoDetails.video_url,
-          duration: songInfo.videoDetails.lengthSeconds,
-          thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
-          order: message.author.username
-        };
-      } catch (error) {
-        console.error(error);
-        return message.reply("KHÔNG TÌM THẤY").catch(console.error);
+      if (urlValid) {
+        try {
+          songInfo = await ytdl.getInfo(url);
+          song = {
+            title: songInfo.videoDetails.title,
+            url: songInfo.videoDetails.video_url,
+            duration: songInfo.videoDetails.lengthSeconds,
+            thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
+            order: message.author.username
+          };
+        } catch (error) {
+          console.error(error);
+          return message.reply(error.message).catch(console.error);
+        }
+      } else {
+        try {
+          //get random key
+          const youtube = new YouTubeAPI(keylist[Math.floor(Math.random() * keylist.length)]);
+          const results = await youtube.searchVideos(search, 1);
+          songInfo = await ytdl.getInfo(results[0].url);
+          song = {
+            title: songInfo.videoDetails.title,
+            url: songInfo.videoDetails.video_url,
+            duration: songInfo.videoDetails.lengthSeconds,
+            thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
+            order: message.author.username
+          };
+        } catch (error) {
+          console.error(error);
+          return message.reply("KHÔNG TÌM THẤY").catch(console.error);
+        }
       }
     }
 
-    if (serverQueue) {
-      serverQueue.songs.push(song);
-      return serverQueue.textChannel
-        .send(`✅ ĐÃ THÊM **${song.title}** ordered by **@${song.order}**`)
-        .then(() => {
-          showQueue(message)
-        })
-        .catch(console.error);
+    if (videos.length == 0) {
+      if (serverQueue) {
+        serverQueue.songs.push(song);
+        return serverQueue.textChannel
+          .send(`✅ ĐÃ THÊM **${song.title}** ordered by **@${song.order}**`)
+          .then(() => {
+            showQueue(message)
+          })
+          .catch(console.error);
+      } else {
+        queueConstruct.songs.push(song);
+        message.client.queue.set(message.guild.id, queueConstruct);
+      }
+    } else {
+      message.channel.send("Đợi 10 giây để Kanna lấy nhạc nhé ❤️")
+      if (serverQueue) {
+        videos.forEach(async(video) => {
+          //songInfo = await ytdl.getInfo(video.url);
+          song = {
+            title: video.title,
+            url: video.url,
+            duration: 0,
+            thumbnail: video.thumbnails.url,
+            order: message.author.username
+          };
+          serverQueue.songs.push(song);
+        });
+        return serverQueue.textChannel
+          .send(`✅ ĐÃ THÊM **${videos.length}** bài hát by **@${song.order}**`)
+          .then(() => {
+            showQueue(message)
+          })
+          .catch(console.error);
+      } else {
+        videos.forEach(async(video) => {
+          //songInfo = await ytdl.getInfo(video.url);
+          song = {
+            title: video.title,
+            url: video.url,
+            duration: 0,
+            thumbnail: video.thumbnails.medium.url,
+            order: message.author.username
+          };
+          // console.log(song)
+          queueConstruct.songs.push(song);
+        });
+        message.client.queue.set(message.guild.id, queueConstruct);
+      }
     }
-
-    queueConstruct.songs.push(song);
-    message.client.queue.set(message.guild.id, queueConstruct);
-
+    
     try {
       queueConstruct.connection = await channel.join();
       await queueConstruct.connection.voice.setSelfDeaf(true);
