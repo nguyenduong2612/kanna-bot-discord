@@ -54,7 +54,6 @@ module.exports = {
           const youtube = new YouTubeAPI(keylist[Math.floor(Math.random() * keylist.length)]);
           playlist = await youtube.getPlaylist(url, { part: ["snippet"] });
           videos = await playlist.getVideos(20, { part: ["snippet"] });
-          console.log(videos)
         } catch (error) {
           console.error(error);
           return message.reply("KHÔNG TÌM THẤY :(").catch(console.error);
@@ -119,7 +118,7 @@ module.exports = {
             title: video.title,
             url: video.url,
             duration: 0,
-            thumbnail: video.thumbnails.url,
+            thumbnail: video.thumbnails.medium.url,
             order: message.author.username
           };
           serverQueue.songs.push(song);
