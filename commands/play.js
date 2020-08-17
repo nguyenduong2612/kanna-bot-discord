@@ -18,7 +18,7 @@ module.exports = {
 
     if (!args.length)
       return message
-        .reply(`Usage: ${message.client.prefix}play <YouTube URL | Video Name>`)
+        .reply(`Sai cú pháp :( !play <YouTube URL | Video Name>`)
         .catch(console.error);
 
     const permissions = channel.permissionsFor(message.client.user);
@@ -56,10 +56,10 @@ module.exports = {
           videos = await playlist.getVideos(20, { part: ["snippet"] });
         } catch (error) {
           console.error(error);
-          return message.reply("KHÔNG TÌM THẤY :(").catch(console.error);
+          return message.reply("Bị lỗi gì á chịu luôn, hỏi anh Nguyn nhé, không phải tại em đâu 😋").catch(console.error);
         }
       } else {
-        return message.reply("KHÔNG TÌM THẤY :(").catch(console.error);
+        return message.reply("Bị lỗi gì á chịu luôn, hỏi anh Nguyn nhé, không phải tại em đâu 😋").catch(console.error);
       }
     } else {
       if (urlValid) {
@@ -74,7 +74,7 @@ module.exports = {
           };
         } catch (error) {
           console.error(error);
-          return message.reply(error.message).catch(console.error);
+          return message.reply("Bị lỗi gì á chịu luôn, hỏi anh Nguyn nhé, không phải tại em đâu 😋").catch(console.error);
         }
       } else {
         try {
@@ -91,7 +91,7 @@ module.exports = {
           };
         } catch (error) {
           console.error(error);
-          return message.reply("KHÔNG TÌM THẤY").catch(console.error);
+          return message.reply("Bị lỗi gì á chịu luôn, hỏi anh Nguyn nhé, không phải tại em đâu 😋").catch(console.error);
         }
       }
     }
@@ -102,6 +102,7 @@ module.exports = {
         return serverQueue.textChannel
           .send(`✅ ĐÃ THÊM **${song.title}** ordered by **@${song.order}**`)
           .then(() => {
+            console.log('add song: ok')
             showQueue(message)
           })
           .catch(console.error);
@@ -126,6 +127,7 @@ module.exports = {
         return serverQueue.textChannel
           .send(`✅ ĐÃ THÊM **${videos.length}** bài hát by **@${song.order}**`)
           .then(() => {
+            console.log('add playlist: ok')
             showQueue(message)
           })
           .catch(console.error);
@@ -150,12 +152,12 @@ module.exports = {
       queueConstruct.connection = await channel.join();
       await queueConstruct.connection.voice.setSelfDeaf(true);
       play(queueConstruct.songs[0], message);
-      console.log('ok')
+      console.log(`playing: ok`)
     } catch (error) {
       console.error(error);
       message.client.queue.delete(message.guild.id);
       await channel.leave();
-      return message.channel.send(`Could not join the channel: ${error}`).catch(console.error);
+      return message.channel.send(`Không join đượccccccccc !`).catch(console.error);
     }
   }
 };

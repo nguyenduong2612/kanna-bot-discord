@@ -4,10 +4,11 @@ module.exports = {
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
     
-    if (!queue) return message.reply("There is nothing playing.").catch(console.error);
+    if (!queue) return message.reply("Không có nhạc thì dừng làm sao 😩").catch(console.error);
 
     queue.songs = [];
     queue.connection.dispatcher.end();
-    queue.textChannel.send(`${message.author} ⏹ stopped the music!`).catch(console.error);
+    console.log("stop: ok")
+    queue.textChannel.send(`⏹ STOPPED`).catch(console.error);
   }
 };

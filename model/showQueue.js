@@ -3,7 +3,7 @@ const { MessageEmbed, splitMessage, escapeMarkdown } = require("discord.js");
 module.exports = {
   showQueue(message) {
     const queue = message.client.queue.get(message.guild.id);
-    if (!queue) return message.reply("HẾT NHẠC RÙI 😭").catch(console.error);
+    if (!queue) return message.reply("Hết nhạc rùi 😭").catch(console.error);
 
     let totalTime = 0
     const description = queue.songs.map((song, index) => {
