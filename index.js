@@ -21,6 +21,7 @@ const Werewoft = require('./model/werewoft')
 var warg = new Werewoft()
 
 client.once('ready', () => {
+	message.channel.send('Hello!')
 	console.log('🐶 is ready!');
 });
 
