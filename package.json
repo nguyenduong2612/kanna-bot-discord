@@ -10,6 +10,7 @@
     "ffmpeg-static": "^4.2.7",
     "firebase": "^7.24.0",
     "firebase-admin": "^9.3.0",
+    "heroku-client": "^3.1.0",
     "nodemon": "^2.0.6",
     "simple-youtube-api": "^5.2.1",
     "tenorjs": "^1.0.7",
