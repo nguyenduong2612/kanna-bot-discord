@@ -12,6 +12,7 @@
     "firebase": "^7.24.0",
     "firebase-admin": "^9.4.2",
     "fluent-ffmpeg": "^2.1.2",
+    "heroku-client": "^3.1.0",
     "nodemon": "^2.0.6",
     "opusscript": "0.0.7",
     "simple-youtube-api": "^5.2.1",
