@@ -5,16 +5,18 @@
   "main": "index.js",
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
-    "discord.js": "^12.4.1",
+    "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
+    "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.7",
     "firebase": "^7.24.0",
-    "firebase-admin": "^9.3.0",
+    "firebase-admin": "^9.4.2",
+    "fluent-ffmpeg": "^2.1.2",
     "nodemon": "^2.0.6",
+    "opusscript": "0.0.7",
     "simple-youtube-api": "^5.2.1",
     "tenorjs": "^1.0.7",
-    "ytdl-core": "^3.4.2",
-    "ytdl-core-discord": "^1.2.4"
+    "ytdl-core": "^4.1.4"
   },
   "devDependencies": {},
   "scripts": {
