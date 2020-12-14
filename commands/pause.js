@@ -1,6 +1,6 @@
 module.exports = {
   name: "pause",
-  description: "Pause the currently playing song",
+  description: "[KANNA BIẾT HÁT] Dừng nhạc đang phát",
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
     if (!queue) return message.reply("HẾT NHẠC RÙI 😭").catch(console.error);

@@ -1,6 +1,6 @@
 module.exports = {
   name: "stop",
-  description: "Stops the music",
+  description: "[KANNA BIẾT HÁT] Dừng nhạc đang phát",
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
     

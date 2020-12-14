@@ -13,7 +13,7 @@ const kill = (message, args, warg) => {
 module.exports = {
   name: 'kill',
   aliases: ['k'],
-	description: 'Giết',
+	description: '[KANNA QUẢN TRÒ] Giết người',
 	guildOnly: true,
   adminOnly: true,
 	execute(message, args, warg) {

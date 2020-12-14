@@ -7,14 +7,14 @@ const join = (message, args) => {
   }).catch(e => {
     // Oh no, it errored! Let's log it to console :)
     console.error(e);
-    message.channel.send(`Could not join the channel: ${e}`)
+    message.channel.send(`Không vào đượcccccccccccc`)
   });
 }
 
 module.exports = {
 	name: 'join',
 	aliases: ['j'],
-  description: 'kanna react',
+  description: '[KANNA BIẾT HÁT] Kéo Kanna vào kênh',
   guildOnly: true,
 	execute(message, args) {
     join(message, args)

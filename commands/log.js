@@ -33,7 +33,7 @@ const log = (message, warg) => {
 module.exports = {
   name: 'log',
   aliases: ['l'],
-  description: 'Ghi chép',
+  description: '[KANNA QUẢN TRÒ] Ghi chép',
   guildOnly: true,
 	execute(message, args, warg) {
 		log(message, warg)

@@ -10,7 +10,7 @@ const say = (message, args) => {
 module.exports = {
   name: 'say',
   aliases: ['talk', 't'],
-  description: 'kanna say',
+  description: '[KANNA TẤU HÀI] Nhờ Kanna nói hộ nỗi lòng',
   guildOnly: true,
 	execute(message, args) {
     say(message, args)

@@ -14,7 +14,7 @@ const restart_kanna = (message, args) => {
 module.exports = {
   name: 'restart_kanna',
   aliases: ['restart_kanna'],
-  description: 'kanna restart',
+  description: '[ĐỪNG LÀM THẾ] Khởi động lại Kanna',
   guildOnly: true,
 	execute(message, args) {
     restart_kanna(message, args)

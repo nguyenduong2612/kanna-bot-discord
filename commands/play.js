@@ -7,12 +7,12 @@ const keylist = [process.env.YOUTUBE_API_KEY, process.env.YOUTUBE_API_KEY_1, pro
 
 module.exports = {
   name: "play",
-  description: "Plays audio from YouTube",
+  description: "[KANNA BIẾT HÁT] Hát 1 bài trên Youtube. Hoặc nhiều bài.",
   async execute(message, args) {
     const { channel } = message.member.voice;
 
     const serverQueue = message.client.queue.get(message.guild.id);
-    if (!channel) return message.reply("You need to join a voice channel first!").catch(console.error);
+    if (!channel) return message.reply("Vào voice đi bạn ui").catch(console.error);
     if (serverQueue && channel !== message.guild.me.voice.channel)
       return message.reply(`You must be in the same channel as ${message.client.user}`).catch(console.error);
 
@@ -74,7 +74,7 @@ module.exports = {
           };
         } catch (error) {
           console.error(error);
-          return message.reply("Bị lỗi gì á chịu luôn, hỏi anh Nguyn nhé, không phải tại em đâu 😋").catch(console.error);
+          return message.reply("Bị lỗi gì chịu luôn á 😋").catch(console.error);
         }
       } else {
         try {
@@ -91,7 +91,7 @@ module.exports = {
           };
         } catch (error) {
           console.error(error);
-          return message.reply("Bị lỗi gì á chịu luôn, hỏi anh Nguyn nhé, không phải tại em đâu 😋").catch(console.error);
+          return message.reply("Bị lỗi gì chịu luôn á 😋").catch(console.error);
         }
       }
     }
@@ -157,7 +157,7 @@ module.exports = {
       console.error(error);
       message.client.queue.delete(message.guild.id);
       await channel.leave();
-      return message.channel.send(`Không join đượccccccccc !`).catch(console.error);
+      return message.channel.send(`Không vào đượccccccccc !`).catch(console.error);
     }
   }
 };

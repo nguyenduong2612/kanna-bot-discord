@@ -2,7 +2,7 @@ const { prefix } = require('../config.json');
 
 module.exports = {
 	name: 'help',
-	description: 'List all of my commands or info about a specific command.',
+	description: '[KANNA TRỢ GIÚP] Giúp các bạn mới làm quen với Kanna cute siêu cấp vũ trụ',
 	aliases: ['commands'],
 	usage: '[command name]',
 	cooldown: 5,

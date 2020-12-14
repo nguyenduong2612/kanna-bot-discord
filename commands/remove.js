@@ -2,7 +2,7 @@ const { showQueue } = require("../model/showQueue");
 
 module.exports = {
   name: "remove",
-  description: "Remove song from the queue",
+  description: "[KANNA BIẾT HÁT] Xóa 1 bài nhạc trong queue. Hoặc nhiều bài",
   execute(message, args) {
     const queue = message.client.queue.get(message.guild.id);
     if (!queue) return message.channel.send("Không có nhạc thì xóa cái gì 😩").catch(console.error);

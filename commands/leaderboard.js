@@ -36,7 +36,7 @@ const leaderboard = (message) => {
 module.exports = {
 	name: 'leaderboard',
 	aliases: ['lb'],
-	description: 'Bảng xếp hạng',
+	description: '[KANNA QUẢN TRÒ] Bảng xếp hạng',
 	guildOnly: true,
 		execute(message, args, warg) {
 			leaderboard(message, warg)

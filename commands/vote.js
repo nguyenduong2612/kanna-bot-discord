@@ -56,7 +56,7 @@ const vote = (message, args, warg) => {
 module.exports = {
   name: 'vote',
   aliases: ['v'],
-  description: 'Vote chết/MVP',
+  description: '[KANNA QUẢN TRÒ] Mở vote/MVP',
   guildOnly: true,
   adminOnly: true,
 	execute(message, args, warg) {

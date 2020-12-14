@@ -8,7 +8,7 @@ const Tenor = require("tenorjs").client({
 
 const gif = (message, args) => {
   if (args.length < 1) {
-    message.reply("nhập tên gif đi");
+    message.reply("Nhập tên gif đi");
   } else {
     message.member.lastMessage.delete()
       .then(() => {
@@ -26,7 +26,7 @@ const gif = (message, args) => {
 module.exports = {
   name: 'gif',
   aliases: ['g'],
-  description: 'tenor gif',
+  description: '[KANNA TẤU HÀI] Thả ảnh gif',
   guildOnly: true,
 	execute(message, args) {
     gif(message, args)

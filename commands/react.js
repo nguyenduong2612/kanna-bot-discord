@@ -14,7 +14,7 @@ const react = (message, args) => {
 module.exports = {
   name: 'react',
   aliases: ['r'],
-  description: 'kanna react',
+  description: '[KANNA TẤU HÀI] Thả reaction' ,
   guildOnly: true,
 	execute(message, args) {
     react(message, args)

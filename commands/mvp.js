@@ -41,7 +41,7 @@ const mvp = (message, args) => {
 module.exports = {
 	name: 'mvp',
 	aliases: ['mvp'],
-	description: 'Bảng xếp hạng MVP',
+	description: '[KANNA QUẢN TRÒ] Bảng xếp hạng MVP',
 	guildOnly: true,
   adminOnly: true,
 		execute(message, args, warg) {

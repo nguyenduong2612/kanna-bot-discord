@@ -25,7 +25,7 @@ const sleep = (message) => {
 module.exports = {
   name: 'sleep',
   aliases: ['s'],
-  description: 'Cả làng đi ngủ',
+  description: '[KANNA QUẢN TRÒ] Cho cả làng đi ngủ',
 	guildOnly: true,
   adminOnly: true,
 	execute(message, args, warg) {

@@ -2,7 +2,7 @@ const { showQueue } = require("../model/showQueue");
 
 module.exports = {
   name: "queue",
-  description: "Show the music queue and now playing.",
+  description: "[KANNA BIẾT HÁT] Xem danh sách order nhạc",
   execute(message) {
     showQueue(message)
   }

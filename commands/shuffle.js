@@ -2,7 +2,7 @@ const { showQueue } = require("../model/showQueue");
 
 module.exports = {
   name: "shuffle",
-  description: "Shuffle queue",
+  description: "[KANNA BIẾT HÁT] Trộn queue",
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
     if (!queue) return message.channel.send("KHÔNG CÓ NHẠC").catch(console.error);

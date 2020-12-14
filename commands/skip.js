@@ -1,6 +1,6 @@
 module.exports = {
   name: "skip",
-  description: "Skip the currently playing song",
+  description: "[KANNA BIẾT HÁT] Bài này chán quá nên skip",
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
     if (!queue)

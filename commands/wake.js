@@ -12,7 +12,7 @@ const wake = (message) => {
 module.exports = {
   name: 'wake',
   aliases: ['w', 'wakeup'],
-  description: 'Cả làng thức dậy',
+  description: '[KANNA QUẢN TRÒ] Cả làng thức dậy',
   guildOnly: true,
   adminOnly: true,
 	execute(message, args, warg) {

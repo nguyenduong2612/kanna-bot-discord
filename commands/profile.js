@@ -30,7 +30,7 @@ const profile = (message) => {
 module.exports = {
 	name: 'profile',
 	aliases: ['p'],
-	description: 'Thành tích',
+	description: '[KANNA QUẢN TRÒ] Thành tích người chơi',
 	guildOnly: true,
 		execute(message, args, warg) {
 			profile(message, warg)

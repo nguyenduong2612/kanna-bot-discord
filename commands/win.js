@@ -108,7 +108,7 @@ const win = (message, warg) => {
 
 module.exports = {
 	name: 'win',
-	description: 'Thắng',
+	description: '[KANNA QUẢN TRÒ] Nhập người chiến thắng',
 	guildOnly: true,
   adminOnly: true,
 		execute(message, args, warg) {

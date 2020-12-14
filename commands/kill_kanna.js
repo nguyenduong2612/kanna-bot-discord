@@ -11,7 +11,7 @@ const kill_kanna = (message, args) => {
 module.exports = {
   name: 'kill_kanna',
   aliases: ['kill_kanna'],
-  description: 'kanna shutdown',
+  description: '[ĐỪNG LÀM THẾ] Tắt Kanna nếu nó quá lắm mồm. Nhưng tý là nó tự bật lại =)) (KANNA BẤT TỬ)',
   guildOnly: true,
 	execute(message, args) {
     kill_kanna(message, args)

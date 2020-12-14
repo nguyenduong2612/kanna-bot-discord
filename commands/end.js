@@ -19,7 +19,7 @@ const end = (message, warg) => {
 module.exports = {
   name: 'end',
   aliases: ['e', 'finish'],
-  description: 'Kết thúc và thiết lập lại vai trò',
+  description: '[KANNA QUẢN TRÒ] Kết thúc và thiết lập lại vai trò',
   guildOnly: true,
   adminOnly: true,
 	execute(message, args, warg) {

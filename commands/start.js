@@ -110,7 +110,7 @@ const start = (message, warg) => {
 module.exports = {
   name: 'start',
   aliases: ['new', 'begin'],
-	description: 'Bắt đầu một ván mới',
+	description: '[KANNA QUẢN TRÒ] Bắt đầu chơi ma sói',
 	guildOnly: true,
   adminOnly: true,
 	execute(message, args, warg) {
