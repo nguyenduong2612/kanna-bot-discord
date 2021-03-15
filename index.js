@@ -22,6 +22,7 @@ var warg = new Werewoft()
 
 client.once('ready', () => {
 	console.log('🐶 is ready!');
+	client.user.setActivity('with umih4ra', { type: 'PLAYING' });
 });
 
 client.on('message', message => {
