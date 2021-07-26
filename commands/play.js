@@ -69,7 +69,7 @@ module.exports = {
             title: songInfo.videoDetails.title,
             url: songInfo.videoDetails.video_url,
             duration: songInfo.videoDetails.lengthSeconds,
-            thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
+            thumbnail: songInfo.videoDetails.thumbnails[4].url,
             order: message.author.username
           };
         } catch (error) {
@@ -86,7 +86,7 @@ module.exports = {
             title: songInfo.videoDetails.title,
             url: songInfo.videoDetails.video_url,
             duration: songInfo.videoDetails.lengthSeconds,
-            thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
+            thumbnail: songInfo.videoDetails.thumbnails[4].url,
             order: message.author.username
           };
         } catch (error) {
@@ -119,7 +119,7 @@ module.exports = {
             title: video.title,
             url: video.url,
             duration: 0,
-            thumbnail: video.thumbnails.medium.url,
+            thumbnail: video.thumbnails.standard.url,
             order: message.author.username
           };
           serverQueue.songs.push(song);
@@ -138,7 +138,7 @@ module.exports = {
             title: video.title,
             url: video.url,
             duration: 0,
-            thumbnail: video.thumbnails.medium.url,
+            thumbnail: video.thumbnails.standard.url,
             order: message.author.username
           };
           // console.log(song)

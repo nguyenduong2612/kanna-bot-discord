@@ -17,7 +17,7 @@
     "opusscript": "0.0.7",
     "simple-youtube-api": "^5.2.1",
     "tenorjs": "^1.0.7",
-    "ytdl-core": "^4.5.0"
+    "ytdl-core": "^4.9.0"
   },
   "devDependencies": {},
   "scripts": {
