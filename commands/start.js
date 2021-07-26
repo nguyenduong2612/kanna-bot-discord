@@ -94,7 +94,7 @@ const start = (message, warg) => {
           if (warg.players.length + '' in config.gameBase) {
             choose(message, config.gameBase[warg.players.length + ''], warg)
           } else {
-            message.channel.send(`Không có bộ bài nào cho ${warg.players.length} người~!~?`)
+            message.channel.send(`Không có bộ bài nào cho ${warg.players.length} người`)
           }
 
         }

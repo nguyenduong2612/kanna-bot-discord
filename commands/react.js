@@ -1,12 +1,17 @@
 const react = (message, args) => {
   const emoji_name = args.join(" ")
-  const emoji = message.guild.emojis.cache.find(emoji => emoji.name == emoji_name).id
+  const emoji = message.guild.emojis.cache.find(emoji => emoji.name == emoji_name)
 
   message.member.lastMessage.delete()
     .then(() => {
-      message.channel.messages.fetch({ limit: 1 })
-        .then(messages => messages.first().react(emoji))
+      try {
+        message.channel.messages.fetch({ limit: 1 })
+        .then(messages => messages.first().react(emoji.id))
         .catch(console.error);
+      } catch(error) {
+        console.error(error);
+        return message.reply("Không tìm thấy emoji trong server");
+      }
     })
     .catch(console.error)
 }

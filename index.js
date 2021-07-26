@@ -39,14 +39,14 @@ client.on('message', message => {
   if (command.adminOnly && !message.member.roles.cache.find(r => r.name === 'Admin')) return;
 
 	if (command.guildOnly && message.channel.type !== 'text') {
-		return message.reply('I can\'t execute that command inside DMs!');
+		return message.reply('Không thể thực hiện lệnh trong hộp chat riêng');
 	}
 
 	if (command.args && !args.length) {
-		let reply = `You didn't provide any arguments, ${message.author}!`;
+		let reply = `Không có tham số!`;
 
 		if (command.usage) {
-			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+			reply += `\nCách dùng lệnh: \`${prefix}${command.name} ${command.usage}\``;
 		}
 
 		return message.channel.send(reply);
@@ -65,7 +65,7 @@ client.on('message', message => {
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
-			return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+			return message.reply(`Vui lòng đợi ${timeLeft.toFixed(1)} giây trước khi dùng lệnh \`${command.name}\`.`);
 		}
 	}
 
@@ -76,7 +76,7 @@ client.on('message', message => {
 		command.execute(message, args, warg);
 	} catch (error) {
 		console.error(error);
-		message.reply('there was an error trying to execute that command!');
+		message.reply('Có lỗi khi thực hiện!');
 	}
 });
 

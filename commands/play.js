@@ -14,7 +14,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
     if (!channel) return message.reply("Vào voice đi bạn ui").catch(console.error);
     if (serverQueue && channel !== message.guild.me.voice.channel)
-      return message.reply(`You must be in the same channel as ${message.client.user}`).catch(console.error);
+      return message.reply(`Phải ở chung kênh voice với ${message.client.user} nhé`).catch(console.error);
 
     if (!args.length)
       return message
@@ -23,9 +23,9 @@ module.exports = {
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT"))
-      return message.reply("Cannot connect to voice channel, missing permissions");
+      return message.reply("Kanna không có quyền để vào kênh này *mặt buồn*");
     if (!permissions.has("SPEAK"))
-      return message.reply("Cannot speak in this voice channel, missing permissions");
+      return message.reply("Kanna không có quyền hát trong kênh này *mặt buồn*");
 
     const search = args.join(" ");
     const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
