@@ -69,7 +69,7 @@ module.exports = {
             title: songInfo.videoDetails.title,
             url: songInfo.videoDetails.video_url,
             duration: songInfo.videoDetails.lengthSeconds,
-            thumbnail: songInfo.videoDetails.thumbnails[4].url,
+            thumbnail: songInfo.videoDetails.thumbnails[2].url,
             order: message.author.username
           };
         } catch (error) {
@@ -86,7 +86,7 @@ module.exports = {
             title: songInfo.videoDetails.title,
             url: songInfo.videoDetails.video_url,
             duration: songInfo.videoDetails.lengthSeconds,
-            thumbnail: songInfo.videoDetails.thumbnails[4].url,
+            thumbnail: songInfo.videoDetails.thumbnails[2].url,
             order: message.author.username
           };
         } catch (error) {
